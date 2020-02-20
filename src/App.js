@@ -3,6 +3,12 @@ import Card from "./components/Card";
 import "./App.css";
 import Bowser from "./images/bowser.jpg";
 import BabyMario from "./images/babymario.jpg";
+import MarioBros from "./images/marioBros.jpg";
+import Waluigi from "./images/waluigi.jpg";
+import Wario from "./images/wario.jpg";
+import Yoshi from "./images/yoshi.jpg";
+import Toad from "./images/toad.jpg";
+import Boo from "./images/boo.jpg";
 
 class App extends Component {
   state = {
@@ -11,10 +17,23 @@ class App extends Component {
       { flipped: false, image: Bowser },
       { flipped: false, image: BabyMario },
       { flipped: false, image: Bowser },
-      { flipped: false, image: BabyMario }
+      { flipped: false, image: BabyMario },
+      { flipped: false, image: MarioBros },
+      { flipped: false, image: Waluigi },
+      { flipped: false, image: MarioBros },
+      { flipped: false, image: Waluigi },
+      { flipped: false, image: Wario },
+      { flipped: false, image: Yoshi },
+      { flipped: false, image: Wario },
+      { flipped: false, image: Yoshi },
+      { flipped: false, image: Toad },
+      { flipped: false, image: Boo },
+      { flipped: false, image: Toad },
+      { flipped: false, image: Boo }
     ],
     firstFlip: null,
-    secondFlip: null
+    secondFlip: null,
+    turns: 40
   };
 
   flipHandler = index => {
@@ -24,8 +43,10 @@ class App extends Component {
       this.setState({ cards: newCards, firstFlip: index });
     } else if (this.state.secondFlip == null) {
       let newCards = this.state.cards;
+      let turn = this.state.turns;
+      turn -= 1;
       newCards[index].flipped = true;
-      this.setState({ cards: newCards, secondFlip: index });
+      this.setState({ cards: newCards, secondFlip: index, turns: turn });
     }
   };
 
@@ -39,10 +60,12 @@ class App extends Component {
         console.log("its a match");
         this.setState({ firstFlip: null, secondFlip: null });
       } else if (cards[firstFlip].image != cards[secondFlip].image) {
-        let newCards = this.state.cards;
-        newCards[firstFlip].flipped = false;
-        newCards[secondFlip].flipped = false;
-        this.setState({ cards: newCards, firstFlip: null, secondFlip: null });
+        setTimeout(() => {
+          let newCards = this.state.cards;
+          newCards[firstFlip].flipped = false;
+          newCards[secondFlip].flipped = false;
+          this.setState({ cards: newCards, firstFlip: null, secondFlip: null });
+        }, 2500);
       }
     }
     this.winningLogic();
@@ -58,9 +81,17 @@ class App extends Component {
     return (
       <div className="board">
         {this.state.cards.map((card, index) => {
-          return <Card key={index} image={card.image} flipped={card.flipped} click={() => this.flipHandler(index)} />;
+          return (
+            <Card
+              key={index}
+              image={card.image}
+              flipped={card.flipped}
+              click={() => this.flipHandler(index)}
+            />
+          );
         })}
         <p>{this.state.message}</p>
+        <p>{`Turns: ${this.state.turns}`}</p>
       </div>
     );
   }
