@@ -90,6 +90,15 @@ class App extends Component {
     this.winningLogic();
   }
 
+  restartGame = () => {
+    let newCards = [...this.state.cards];
+    let i;
+    for (i = 0; i < newCards.length; i++) {
+      newCards[i].flipped = false;
+    }
+    this.setState({ cards: newCards, turns: 40 });
+  };
+
   winningLogic = () => {
     //write a function that determines a winner (every card is turned over)
     //there's an array method called -every- which you might want to look up.
@@ -99,6 +108,10 @@ class App extends Component {
   render() {
     return (
       <div>
+        <img
+          src="https://img.icons8.com/metro/26/000000/restart.png"
+          onClick={this.restartGame}
+        />
         <div className="board">
           {this.state.cards.map((card, index) => {
             return (
