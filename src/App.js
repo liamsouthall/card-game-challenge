@@ -13,6 +13,7 @@ import Boo from "./images/boo.jpg";
 class App extends Component {
   state = {
     message: "match the cards to win the game",
+    messageChange: true,
     cards: [
       { flipped: false, image: Bowser },
       { flipped: false, image: BabyMario },
@@ -53,19 +54,37 @@ class App extends Component {
   //this is a React Lifecycle method - read the docs
   componentDidUpdate() {
     //object destructuring so I don't have to keep typing this.state.
-    const { firstFlip, secondFlip, cards } = this.state;
+    const { firstFlip, secondFlip, cards, message, messageChange } = this.state;
 
     if (firstFlip != null && secondFlip != null) {
       if (cards[firstFlip].image == cards[secondFlip].image) {
-        console.log("its a match");
-        this.setState({ firstFlip: null, secondFlip: null });
-      } else if (cards[firstFlip].image != cards[secondFlip].image) {
+        this.setState({
+          firstFlip: null,
+          secondFlip: null,
+          message: "That's a Match"
+        });
+
+        setTimeout(() => {
+          this.setState({ message: "" });
+        }, 1000);
+      } else if (
+        cards[firstFlip].image != cards[secondFlip].image &&
+        messageChange != false
+      ) {
+        this.setState({ message: "Thats not a match", messageChange: false });
+
         setTimeout(() => {
           let newCards = this.state.cards;
           newCards[firstFlip].flipped = false;
           newCards[secondFlip].flipped = false;
-          this.setState({ cards: newCards, firstFlip: null, secondFlip: null });
-        }, 2500);
+          this.setState({
+            cards: newCards,
+            firstFlip: null,
+            secondFlip: null,
+            message: "",
+            messageChange: true
+          });
+        }, 1000);
       }
     }
     this.winningLogic();
@@ -79,19 +98,25 @@ class App extends Component {
 
   render() {
     return (
-      <div className="board">
-        {this.state.cards.map((card, index) => {
-          return (
-            <Card
-              key={index}
-              image={card.image}
-              flipped={card.flipped}
-              click={() => this.flipHandler(index)}
-            />
-          );
-        })}
-        <p>{this.state.message}</p>
-        <p>{`Turns: ${this.state.turns}`}</p>
+      <div>
+        <div className="board">
+          {this.state.cards.map((card, index) => {
+            return (
+              <Card
+                key={index}
+                image={card.image}
+                flipped={card.flipped}
+                click={() => this.flipHandler(index)}
+              />
+            );
+          })}
+        </div>
+        <div className="stats">
+          <p>{`Turns: ${this.state.turns}`}</p>
+        </div>
+        <div className="stats">
+          <p>{this.state.message}</p>
+        </div>
       </div>
     );
   }

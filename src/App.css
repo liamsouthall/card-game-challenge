@@ -4,3 +4,8 @@
   justify-content: center;
   flex-wrap: wrap;
 }
+.stats {
+  max-width: 750px;
+  display: flex;
+  justify-content: center;
+}
