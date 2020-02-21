@@ -108,6 +108,7 @@ class App extends Component {
   render() {
     return (
       <div>
+        <h1 className="title">Memory Game</h1>
         <img
           src="https://img.icons8.com/metro/26/000000/restart.png"
           onClick={this.restartGame}

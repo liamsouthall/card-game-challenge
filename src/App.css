@@ -1,11 +1,17 @@
 .board {
-  max-width: 750px;
+  max-width: 640px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  background-color: #706f70;
 }
 .stats {
-  max-width: 750px;
+  max-width: 700px;
+  display: flex;
+  justify-content: center;
+}
+.title {
+  max-width: 640px;
   display: flex;
   justify-content: center;
 }
