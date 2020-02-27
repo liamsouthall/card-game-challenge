@@ -1,0 +1,2 @@
+.card-front{background-color:#00f}.card-back,.card-front{height:150px;width:150px;display:flex;justify-content:center;align-items:center;margin:5px;border-radius:5px}.card-back{overflow:hidden}.card-image{width:150px}.board{max-width:640px;flex-wrap:wrap;background-color:#706f70}.board,.stats{display:flex;justify-content:center}.stats{max-width:700px}.title{max-width:640px;display:flex;justify-content:center}
+/*# sourceMappingURL=main.e1d844ae.chunk.css.map */

@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e1d844ae.chunk.css",
+    "main.js": "/static/js/main.be80f81f.chunk.js",
+    "main.js.map": "/static/js/main.be80f81f.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.587e4aae.js",
+    "runtime-main.js.map": "/static/js/runtime-main.587e4aae.js.map",
+    "static/js/2.671b1be6.chunk.js": "/static/js/2.671b1be6.chunk.js",
+    "static/js/2.671b1be6.chunk.js.map": "/static/js/2.671b1be6.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.e9286587dbb458ecf6876dbe3869b748.js": "/precache-manifest.e9286587dbb458ecf6876dbe3869b748.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.e1d844ae.chunk.css.map": "/static/css/main.e1d844ae.chunk.css.map",
+    "static/js/2.671b1be6.chunk.js.LICENSE.txt": "/static/js/2.671b1be6.chunk.js.LICENSE.txt",
+    "static/media/babymario.jpg": "/static/media/babymario.2a72b74a.jpg",
+    "static/media/boo.jpg": "/static/media/boo.c3a8ee93.jpg",
+    "static/media/bowser.jpg": "/static/media/bowser.69f44bd2.jpg",
+    "static/media/marioBros.jpg": "/static/media/marioBros.1eaaa11a.jpg",
+    "static/media/toad.jpg": "/static/media/toad.c26b3986.jpg",
+    "static/media/waluigi.jpg": "/static/media/waluigi.93b6971a.jpg",
+    "static/media/wario.jpg": "/static/media/wario.174f5b16.jpg",
+    "static/media/yoshi.jpg": "/static/media/yoshi.3ec7bdf1.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.587e4aae.js",
+    "static/js/2.671b1be6.chunk.js",
+    "static/css/main.e1d844ae.chunk.css",
+    "static/js/main.be80f81f.chunk.js"
+  ]
+}
